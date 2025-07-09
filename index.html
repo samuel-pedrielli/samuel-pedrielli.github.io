@@ -406,6 +406,16 @@
             scroll-behavior: smooth;
         }
 
+        /* Author badges */
+        .badge-link:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+        }
+
+        .badge-link:active {
+            transform: translateY(0) scale(0.98);
+        }
+
         /* Loading animation */
         .fade-in {
             opacity: 0;
@@ -595,6 +605,16 @@
                 <div class="about-content">
                     <div class="about-image">
                         <img src="samuel-pedrielli.jpg" alt="Samuel Pedrielli" style="width: 250px; height: 250px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <div class="author-badges" style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <a href="https://orcid.org/0009-0002-8388-6371" target="_blank" class="badge-link" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #A6CE39; color: white; text-decoration: none; border-radius: 20px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(166,206,57,0.3);">
+                                <i class="fab fa-orcid" style="font-size: 1.2rem;"></i>
+                                <span>ORCID</span>
+                            </a>
+                            <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Samuel%20Pedrielli%22" target="_blank" class="badge-link" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #0B7EC8; color: white; text-decoration: none; border-radius: 20px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(11,126,200,0.3);">
+                                <i class="fas fa-database" style="font-size: 1.1rem;"></i>
+                                <span>Zenodo</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="about-text">
                         <p>I am an independent researcher based in Italy, pursuing breakthrough discoveries across multiple domains of mathematical and computational science. My work spans advanced mathematics, evolutionary psychology, and artificial intelligence safety - united by a commitment to revolutionary thinking that transcends traditional academic boundaries.</p>
