@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://samuel-pedrielli.github.io/sitemap.xml
