@@ -282,6 +282,60 @@
             color: white;
         }
 
+        /* BibTeX citation styles */
+        .citation-toggle {
+            background: #e8f5e8;
+            color: #0b5;
+            border: 1px solid #0b5;
+        }
+
+        .citation-toggle:hover {
+            background: #0b5;
+            color: white;
+        }
+
+        .citation-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #0b5;
+        }
+
+        .citation-content.show {
+            display: block;
+        }
+
+        .citation-text {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #333;
+            white-space: pre-wrap;
+            line-height: 1.4;
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        /* Copy button for citations */
+        .copy-citation {
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: #0b5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .copy-citation:hover {
+            background: #0a4;
+        }
+
         /* About Section */
         .about-content {
             display: grid;
@@ -553,9 +607,21 @@
         <a href="https://zenodo.org/records/15935417" class="pub-link" target="_blank">
             <i class="fas fa-database"></i> Zenodo
         </a>
-        <a href="#" class="pub-link">
+        <button class="pub-link citation-toggle" onclick="toggleCitation('cite1')">
             <i class="fas fa-quote-left"></i> Cite
-        </a>
+        </button>
+    </div>
+    
+    <div id="cite1" class="citation-content">
+        <div class="citation-text">@misc{pedrielli2025_spectral_adelic,
+  author    = {Pedrielli, Samuel},
+  title     = {Spectral Analysis of the Adelic Scaling Operator},
+  howpublished = {Zenodo Preprint},
+  year      = {2025},
+  doi       = {10.5281/zenodo.15935417},
+  url       = {https://doi.org/10.5281/zenodo.15935417}
+}</div>
+        <button class="copy-citation" onclick="copyCitation('cite1')">📋 Copy Citation</button>
     </div>
 </div>
 
@@ -580,6 +646,20 @@
     <a href="https://github.com/samuel-pedrielli" class="pub-link" target="_blank">
       <i class="fab fa-github"></i> Code / Repo
     </a>
+    <button class="pub-link citation-toggle" onclick="toggleCitation('cite2')">
+      <i class="fas fa-quote-left"></i> Cite
+    </button>
+  </div>
+  
+  <div id="cite2" class="citation-content">
+    <div class="citation-text">@misc{pedrielli2025_ego_centric_agi_safety,
+  author    = {Pedrielli, Samuel},
+  title     = {Ego-Centric Architecture for AGI Safety: technical core, falsifiable predictions, and a minimal experiment},
+  howpublished = {Effective Altruism Forum},
+  year      = {2025},
+  url       = {https://forum.effectivealtruism.org/posts/eh2XPCXguyjw3LAg3/ego-centric-architecture-for-agi-safety-technical-core}
+}</div>
+    <button class="copy-citation" onclick="copyCitation('cite2')">📋 Copy Citation</button>
   </div>
 </div>
                 
@@ -600,9 +680,21 @@
                         <a href="https://zenodo.org/records/15668581" class="pub-link" target="_blank">
                             <i class="fas fa-database"></i> Zenodo
                         </a>
-                        <a href="#" class="pub-link">
+                        <button class="pub-link citation-toggle" onclick="toggleCitation('cite3')">
                             <i class="fas fa-quote-left"></i> Cite
-                        </a>
+                        </button>
+                    </div>
+                    
+                    <div id="cite3" class="citation-content">
+                        <div class="citation-text">@misc{pedrielli2025_ego_centric_agi,
+  author    = {Pedrielli, Samuel},
+  title     = {Ego-Centric Architecture for AGI: An Evolutionary Model of Digital Identity Preservation},
+  howpublished = {Zenodo Preprint},
+  year      = {2025},
+  doi       = {10.5281/zenodo.15668581},
+  url       = {https://doi.org/10.5281/zenodo.15668581}
+}</div>
+                        <button class="copy-citation" onclick="copyCitation('cite3')">📋 Copy Citation</button>
                     </div>
                 </div>
 
@@ -623,9 +715,21 @@
                         <a href="https://zenodo.org/records/15851128" class="pub-link" target="_blank">
                             <i class="fas fa-database"></i> Zenodo
                         </a>
-                        <a href="#" class="pub-link">
+                        <button class="pub-link citation-toggle" onclick="toggleCitation('cite4')">
                             <i class="fas fa-quote-left"></i> Cite
-                        </a>
+                        </button>
+                    </div>
+                    
+                    <div id="cite4" class="citation-content">
+                        <div class="citation-text">@misc{pedrielli2025_evolutionary_theory_ego,
+  author    = {Pedrielli, Samuel},
+  title     = {The Evolutionary Theory of Ego and Its Implications for Artificial General Intelligence Safety},
+  howpublished = {Zenodo Preprint},
+  year      = {2025},
+  doi       = {10.5281/zenodo.15851128},
+  url       = {https://doi.org/10.5281/zenodo.15851128}
+}</div>
+                        <button class="copy-citation" onclick="copyCitation('cite4')">📋 Copy Citation</button>
                     </div>
                 </div>
 
@@ -646,9 +750,21 @@
                         <a href="https://zenodo.org/records/15843382" class="pub-link" target="_blank">
                             <i class="fas fa-database"></i> Zenodo
                         </a>
-                        <a href="#" class="pub-link">
+                        <button class="pub-link citation-toggle" onclick="toggleCitation('cite5')">
                             <i class="fas fa-quote-left"></i> Cite
-                        </a>
+                        </button>
+                    </div>
+                    
+                    <div id="cite5" class="citation-content">
+                        <div class="citation-text">@misc{pedrielli2025_mathematical_nature_reality,
+  author    = {Pedrielli, Samuel},
+  title     = {The Mathematical Nature of Reality and Its Implications for Artificial General Intelligence Safety},
+  howpublished = {Zenodo Preprint},
+  year      = {2025},
+  doi       = {10.5281/zenodo.15843382},
+  url       = {https://doi.org/10.5281/zenodo.15843382}
+}</div>
+                        <button class="copy-citation" onclick="copyCitation('cite5')">📋 Copy Citation</button>
                     </div>
                 </div>
 
@@ -669,9 +785,20 @@
                         <a href="https://github.com/samuel-pedrielli/riemann-spectral-verification/blob/main/README.md" class="pub-link" target="_blank">
                             <i class="fas fa-info-circle"></i> Documentation
                         </a>
-                        <a href="#" class="pub-link">
-                            <i class="fas fa-code"></i> Implementation
-                        </a>
+                        <button class="pub-link citation-toggle" onclick="toggleCitation('cite6')">
+                            <i class="fas fa-quote-left"></i> Cite
+                        </button>
+                    </div>
+                    
+                    <div id="cite6" class="citation-content">
+                        <div class="citation-text">@misc{pedrielli2024_riemann_hypothesis,
+  author    = {Pedrielli, Samuel},
+  title     = {Riemann Hypothesis Spectral Verification Using GUE Random Matrix Theory},
+  howpublished = {GitHub Repository},
+  year      = {2024},
+  url       = {https://github.com/samuel-pedrielli/riemann-spectral-verification}
+}</div>
+                        <button class="copy-citation" onclick="copyCitation('cite6')">📋 Copy Citation</button>
                     </div>
                 </div>
             </section>
@@ -755,6 +882,48 @@
 
         // Dynamic year update
         document.querySelector('footer p').innerHTML = document.querySelector('footer p').innerHTML.replace('2025', new Date().getFullYear());
+
+        // Citation toggle functionality
+        function toggleCitation(citationId) {
+            const citation = document.getElementById(citationId);
+            citation.classList.toggle('show');
+        }
+
+        // Copy citation to clipboard
+        function copyCitation(citationId) {
+            const citation = document.querySelector(`#${citationId} .citation-text`);
+            const text = citation.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const button = document.querySelector(`#${citationId} .copy-citation`);
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = '#0a4';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#0b5';
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const button = document.querySelector(`#${citationId} .copy-citation`);
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = '#0a4';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#0b5';
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
