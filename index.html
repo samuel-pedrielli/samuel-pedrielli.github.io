@@ -583,9 +583,16 @@
                 <!-- Modal per l'immagine full-size -->
                 <div id="imageModal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);">
                     <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                        <span onclick="closeImageModal()" style="position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
-                        <div style="max-width: 90%; max-height: 90%; overflow: auto;">
-                            <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                        <!-- Close button -->
+                        <span onclick="closeImageModal()" style="position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10001;">&times;</span>
+                        
+                        <!-- Back button -->
+                        <button onclick="closeImageModal()" style="position: absolute; top: 20px; left: 35px; background-color: #28a745; color: white; border: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; z-index: 10001; transition: all 0.3s ease;">
+                            ← Back
+                        </button>
+                        
+                        <div style="width: 95%; height: 95%; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; max-width: 1200px; max-height: 630px;">
                                 <defs>
                                     <linearGradient id="bgGradientModal" x1="0%" y1="0%" x2="100%" y2="100%">
                                         <stop offset="0%" style="stop-color:#1a1a2e"/>
