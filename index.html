@@ -4,14 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
+    <!-- No tracking scripts - Privacy focused -->
     
     <!-- SEO Meta Tags -->
     <title>Samuel Pedrielli - Independent Researcher in AGI Safety & Mathematical Sciences</title>
@@ -1224,9 +1217,9 @@
                     <script 
                         src="https://giscus.app/client.js"
                         data-repo="samuel-pedrielli/samuel-pedrielli.github.io"
-                        data-repo-id="R_kgDOM5znbQ"
+                        data-repo-id="R_kgDOPIk5vQ"
                         data-category="General"
-                        data-category-id="DIC_kwDOM5znbc4ClAMw"
+                        data-category-id="DIC_kwDOPIk5vc4Cvhfl"
                         data-mapping="pathname"
                         data-strict="0"
                         data-reactions-enabled="1"
@@ -1246,6 +1239,9 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Samuel Pedrielli. All rights reserved. | Independent Researcher | Revolutionary Thinking Across Mathematical Sciences</p>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">
+                This website is hosted on GitHub Pages. No personal data is collected or processed. Content is for informational purposes only.
+            </p>
         </div>
     </footer>
 
@@ -1377,32 +1373,23 @@
             }
         }
 
-        // Track scroll to comments section for analytics
+        // Track scroll to comments section
         const commentsSection = document.getElementById('comments');
         const commentsObserver = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
-                if (entry.isIntersecting && typeof gtag !== 'undefined') {
-                    gtag('event', 'view_comments_section', {
-                        event_category: 'engagement',
-                        event_label: 'research_discussion'
-                    });
+                if (entry.isIntersecting) {
+                    console.log('Comments section viewed'); // Simple logging for debugging
                 }
             });
         }, { threshold: 0.5 });
 
         commentsObserver.observe(commentsSection);
 
-        // Track publication clicks for analytics
+        // Track publication clicks
         document.querySelectorAll('.pub-link').forEach(link => {
             link.addEventListener('click', function() {
-                if (typeof gtag !== 'undefined') {
-                    const publication = this.closest('.publication').querySelector('h3').textContent;
-                    gtag('event', 'publication_click', {
-                        event_category: 'research',
-                        event_label: publication,
-                        value: 1
-                    });
-                }
+                const publication = this.closest('.publication').querySelector('h3').textContent;
+                console.log('Publication clicked:', publication); // Simple logging for debugging
             });
         });
     </script>
