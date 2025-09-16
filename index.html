@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
     <!-- SEO Meta Tags -->
     <title>Samuel Pedrielli - Independent Researcher in AGI Safety & Mathematical Sciences</title>
     <meta name="description" content="Samuel Pedrielli - Independent Researcher specializing in AGI Safety, ego-centric architectures, Riemann Hypothesis research, and mathematical physics. Published work on artificial intelligence alignment and quantum field theory.">
@@ -399,6 +408,59 @@
             background: #0a4;
         }
 
+        /* Comments Section */
+        .comments-section {
+            background: #f8fafe;
+            padding: 3rem 0;
+            margin: 4rem -2rem 0 -2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .comments-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .comments-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .toggle-btn {
+            background: #1e3c72;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toggle-btn:hover {
+            background: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        .comments-content {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .comments-content.show {
+            display: block;
+        }
+
         /* About Section */
         .about-content {
             display: grid;
@@ -516,6 +578,15 @@
             .research-grid {
                 grid-template-columns: 1fr;
             }
+
+            .comments-section {
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+
+            .comments-container {
+                padding: 0 1rem;
+            }
         }
 
         /* Responsive per i badge */
@@ -573,6 +644,30 @@
             margin-left: 0.5rem;
             vertical-align: super;
         }
+
+        /* Comments loading state */
+        .comments-loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .comments-loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1e3c72;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -594,6 +689,7 @@
                     <li><a href="#publications">Publications</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#comments">Discuss</a></li>
                     <li><a href="https://github.com/samuel-pedrielli/ego-centric-agi" target="_blank" rel="noopener">Code</a></li>
                 </ul>
             </div>
@@ -1105,6 +1201,46 @@
                 </div>
             </section>
         </div>
+
+        <!-- Comments Section -->
+        <section id="comments" class="comments-section">
+            <div class="comments-container">
+                <h2>Research Discussion</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+                    Join the conversation about my research. Share your thoughts, ask questions, and engage with the community.
+                </p>
+                
+                <div class="comments-toggle">
+                    <button class="toggle-btn" onclick="toggleComments()">
+                        <i class="fas fa-comments" id="comments-icon"></i>
+                        <span id="comments-btn-text">Show Comments</span>
+                    </button>
+                </div>
+
+                <div id="comments-content" class="comments-content">
+                    <div id="giscus-loading" class="comments-loading">
+                        Loading comments...
+                    </div>
+                    <script 
+                        src="https://giscus.app/client.js"
+                        data-repo="samuel-pedrielli/samuel-pedrielli.github.io"
+                        data-repo-id="R_kgDOM5znbQ"
+                        data-category="General"
+                        data-category-id="DIC_kwDOM5znbc4ClAMw"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="light"
+                        data-lang="en"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                    </script>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -1211,6 +1347,63 @@
             if (event.key === 'Escape') {
                 closeImageModal();
             }
+        });
+
+        // Comments toggle functionality
+        let commentsLoaded = false;
+
+        function toggleComments() {
+            const content = document.getElementById('comments-content');
+            const btnText = document.getElementById('comments-btn-text');
+            const icon = document.getElementById('comments-icon');
+            const loading = document.getElementById('giscus-loading');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                btnText.textContent = 'Show Comments';
+                icon.className = 'fas fa-comments';
+            } else {
+                content.classList.add('show');
+                btnText.textContent = 'Hide Comments';
+                icon.className = 'fas fa-comments-slash';
+                
+                // Hide loading indicator after a brief delay when comments are first shown
+                if (!commentsLoaded) {
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                        commentsLoaded = true;
+                    }, 2000);
+                }
+            }
+        }
+
+        // Track scroll to comments section for analytics
+        const commentsSection = document.getElementById('comments');
+        const commentsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && typeof gtag !== 'undefined') {
+                    gtag('event', 'view_comments_section', {
+                        event_category: 'engagement',
+                        event_label: 'research_discussion'
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        commentsObserver.observe(commentsSection);
+
+        // Track publication clicks for analytics
+        document.querySelectorAll('.pub-link').forEach(link => {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    const publication = this.closest('.publication').querySelector('h3').textContent;
+                    gtag('event', 'publication_click', {
+                        event_category: 'research',
+                        event_label: publication,
+                        value: 1
+                    });
+                }
+            });
         });
     </script>
 </body>
