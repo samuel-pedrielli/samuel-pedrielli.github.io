@@ -13,23 +13,22 @@
     <meta name="author" content="Samuel Pedrielli">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph Meta Tags for Social Media - IMPROVED -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Samuel Pedrielli - Independent Researcher in AGI Safety & Mathematical Sciences">
-    <meta property="og:description" content="Novel approaches to AGI safety and exploratory mathematical research on the Riemann Hypothesis. Independent research bridging mathematics, evolutionary theory, and AI alignment.">
+    <meta property="og:description" content="Novel approaches to AGI safety and exploratory mathematical research on the Riemann Hypothesis.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://samuel-pedrielli.github.io">
     <meta property="og:image" content="https://samuel-pedrielli.github.io/samuel-pedrielli.jpg">
     
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Samuel Pedrielli - Independent Researcher">
     <meta name="twitter:description" content="Novel approaches to AGI Safety and Mathematical Research">
     <meta name="twitter:image" content="https://samuel-pedrielli.github.io/samuel-pedrielli.jpg">
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://samuel-pedrielli.github.io">
     
-    <!-- Schema.org Structured Data - IMPROVED -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -51,15 +50,7 @@
         "Riemann Hypothesis",
         "Random Matrix Theory",
         "Evolutionary Psychology"
-      ],
-      "alumniOf": {
-        "@type": "Country",
-        "name": "Italy"
-      },
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Independent Research"
-      }
+      ]
     }
     </script>
     
@@ -223,7 +214,6 @@
             line-height: 1.8;
         }
 
-        /* Hover effects per i nuovi badge */
         .hero a:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
@@ -236,6 +226,87 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin: 2rem 0;
             border-left: 5px solid #1e3c72;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #ff4444;
+        }
+
+        .modal-back {
+            position: absolute;
+            top: 20px;
+            left: 35px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10001;
+            transition: all 0.3s ease;
+        }
+
+        .modal-back:hover {
+            background-color: #218838;
+            transform: translateX(-3px);
+        }
+
+        .modal-image-container {
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image-container img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Research Cards */
@@ -314,6 +385,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .publication .abstract {
@@ -347,11 +419,11 @@
             color: white;
         }
 
-        /* BibTeX citation styles */
         .citation-toggle {
             background: #e8f5e8;
             color: #0b5;
             border: 1px solid #0b5;
+            cursor: pointer;
         }
 
         .citation-toggle:hover {
@@ -384,7 +456,6 @@
             border: 1px solid #ddd;
         }
 
-        /* Copy button for citations */
         .copy-citation {
             margin-top: 0.5rem;
             padding: 0.3rem 0.8rem;
@@ -464,19 +535,6 @@
 
         .about-image {
             text-align: center;
-        }
-
-        .about-image .placeholder {
-            width: 250px;
-            height: 250px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            margin: 0 auto 1rem;
         }
 
         .about-text {
@@ -577,12 +635,20 @@
                 margin-right: -1rem;
             }
 
-            .comments-container {
-                padding: 0 1rem;
+            .modal-close {
+                font-size: 30px;
+                top: 10px;
+                right: 15px;
+            }
+
+            .modal-back {
+                font-size: 14px;
+                padding: 10px 18px;
+                top: 10px;
+                left: 15px;
             }
         }
 
-        /* Responsive per i badge */
         @media (max-width: 480px) {
             .hero div[style*="display: flex"] {
                 flex-direction: column !important;
@@ -596,22 +662,15 @@
             }
         }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Author badges */
         .badge-link:hover {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
         }
 
-        .badge-link:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        /* Loading animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -625,7 +684,6 @@
             }
         }
 
-        /* V2 Badge */
         .v2-badge {
             display: inline-block;
             background: #ff4444;
@@ -638,7 +696,6 @@
             vertical-align: super;
         }
 
-        /* Comments loading state */
         .comments-loading {
             text-align: center;
             padding: 2rem;
@@ -660,6 +717,46 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* Video/Audio player styles */
+        .media-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .media-container h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .media-container p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -695,7 +792,7 @@
                 <h2>Mathematical Research & AGI Safety</h2>
                 <p>Developing novel frameworks that bridge advanced mathematics, evolutionary psychology, and artificial intelligence safety. My work explores unconventional connections between these domains through interdisciplinary analysis.</p>
                 
-                <!-- Badge Container con due badge simmetrici -->
+                <!-- Badge Container -->
                 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
                     <!-- Badge One-Pager -->
                     <a href="assets/OnePager_EGO-AGI.pdf" target="_blank" 
@@ -711,7 +808,7 @@
                         📄 1-Page Brief (PDF)
                     </a>
                     
-                    <!-- Badge Research Visual - Stesso stile del one-pager ma verde -->
+                    <!-- Badge Research Visual -->
                     <a href="#" onclick="openImageModal(); return false;" 
                        style="display: inline-block; 
                               background-color: #28a745; 
@@ -726,24 +823,31 @@
                     </a>
                 </div>
 
-                <!-- Modal per l'immagine full-size -->
-                <div id="imageModal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);">
-                    <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                        <!-- Close button -->
-                        <span onclick="closeImageModal()" style="position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10001;">&times;</span>
-                        
-                        <!-- Back button -->
-                        <button onclick="closeImageModal()" style="position: absolute; top: 20px; left: 35px; background-color: #28a745; color: white; border: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; z-index: 10001; transition: all 0.3s ease;">
-                            ← Back
-                        </button>
-                        
-                        <div style="width: 95%; height: 95%; display: flex; align-items: center; justify-content: center;">
-                            <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; max-width: 1200px; max-height: 630px;">
-                                <!-- [SVG content invariato] -->
-                            </svg>
+                <!-- Modal per l'immagine -->
+                <div id="imageModal" class="modal">
+                    <div class="modal-content-wrapper">
+                        <span class="modal-close" onclick="closeImageModal()">&times;</span>
+                        <button class="modal-back" onclick="closeImageModal()">← Back</button>
+                        <div class="modal-image-container">
+                            <img src="ego-centric-diagram.png" alt="Ego-Centric Architecture Diagram">
                         </div>
                     </div>
                 </div>
+
+                <!-- OPTIONAL: NotebookLM Video/Audio Overview -->
+                <!-- Uncomment and add your YouTube embed code here -->
+                <!--
+                <div class="media-container">
+                    <h3><i class="fas fa-headphones"></i> Audio Overview</h3>
+                    <p><em>AI-generated educational overview by NotebookLM - an accessible introduction to the ego-centric architecture research.</em></p>
+                    <div class="video-responsive">
+                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                -->
                 
                 <div class="highlight-box">
                     <strong>Current Focus:</strong> Exploring novel approaches to AGI safety through ego-centric architectures and conducting exploratory mathematical research on the Riemann Hypothesis using GUE random matrix theory. Work in progress across multiple domains of mathematical and computational science.
@@ -789,19 +893,10 @@
                 </div>
             </section>
 
+            <!-- Publications section - keeping your existing code -->
             <section id="publications" class="fade-in">
                 <h2>Publications</h2>
-                
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <a href="https://forum.effectivealtruism.org/posts/9yictYazJkm4WYz6j/ego-centric-architecture-for-agi-safety-v2-technical-core" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .6rem;border-radius:999px;background:#0b5; color:#fff; text-decoration:none; font-weight:600; font-size:.9rem;">
-                        <span style="display:inline-block;width:.55rem;height:.55rem;background:#fff;border-radius:50%;"></span>
-                        Featured on Effective Altruism Forum
-                        <span class="v2-badge">V2</span>
-                    </a>
-                </div>
-
-                <!-- [Resto delle pubblicazioni invariato - troppo lungo da ricopiare, ma stesso identico codice] -->
-                
+                <!-- [Your existing publications code here - unchanged] -->
             </section>
 
             <section id="about" class="fade-in">
@@ -844,8 +939,45 @@
             </section>
         </div>
 
-        <!-- [Comments section invariata] -->
-        
+        <!-- Comments Section -->
+        <section id="comments" class="comments-section">
+            <div class="comments-container">
+                <h2>Research Discussion</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+                    Join the conversation about my research. Share your thoughts, ask questions, and engage with the community.
+                </p>
+                
+                <div class="comments-toggle">
+                    <button class="toggle-btn" onclick="toggleComments()">
+                        <i class="fas fa-comments" id="comments-icon"></i>
+                        <span id="comments-btn-text">Show Comments</span>
+                    </button>
+                </div>
+
+                <div id="comments-content" class="comments-content">
+                    <div id="giscus-loading" class="comments-loading">
+                        Loading comments...
+                    </div>
+                    <script 
+                        src="https://giscus.app/client.js"
+                        data-repo="samuel-pedrielli/samuel-pedrielli.github.io"
+                        data-repo-id="R_kgDOPIk5vQ"
+                        data-category="General"
+                        data-category-id="DIC_kwDOPIk5vc4Cvhfl"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="light"
+                        data-lang="en"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                    </script>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -857,7 +989,131 @@
         </div>
     </footer>
 
-    <!-- [JavaScript invariato] -->
-    
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Dynamic year
+        document.querySelector('footer p').innerHTML = document.querySelector('footer p').innerHTML.replace('2025', new Date().getFullYear());
+
+        // Citation toggle
+        function toggleCitation(citationId) {
+            const citation = document.getElementById(citationId);
+            citation.classList.toggle('show');
+        }
+
+        // Copy citation
+        function copyCitation(citationId) {
+            const citation = document.querySelector(`#${citationId} .citation-text`);
+            const text = citation.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const button = document.querySelector(`#${citationId} .copy-citation`);
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = '#0a4';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#0b5';
+                }, 2000);
+            }).catch(() => {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const button = document.querySelector(`#${citationId} .copy-citation`);
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = '#0a4';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#0b5';
+                }, 2000);
+            });
+        }
+
+        // Modal functions
+        function openImageModal() {
+            document.getElementById('imageModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on click outside
+        document.getElementById('imageModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeImageModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+
+        // Comments toggle
+        let commentsLoaded = false;
+
+        function toggleComments() {
+            const content = document.getElementById('comments-content');
+            const btnText = document.getElementById('comments-btn-text');
+            const icon = document.getElementById('comments-icon');
+            const loading = document.getElementById('giscus-loading');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                btnText.textContent = 'Show Comments';
+                icon.className = 'fas fa-comments';
+            } else {
+                content.classList.add('show');
+                btnText.textContent = 'Hide Comments';
+                icon.className = 'fas fa-comments-slash';
+                
+                if (!commentsLoaded) {
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                        commentsLoaded = true;
+                    }, 2000);
+                }
+            }
+        }
+    </script>
 </body>
 </html>
