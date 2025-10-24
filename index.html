@@ -92,15 +92,17 @@ header::before {
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 15% 20%, rgba(101, 67, 33, 0.15) 2px, transparent 2px),
-        radial-gradient(circle at 45% 35%, rgba(139, 90, 43, 0.12) 1px, transparent 1px),
-        radial-gradient(circle at 75% 50%, rgba(160, 82, 45, 0.1) 3px, transparent 3px),
-        radial-gradient(circle at 25% 70%, rgba(101, 67, 33, 0.13) 2px, transparent 2px),
-        radial-gradient(circle at 85% 80%, rgba(139, 90, 43, 0.11) 1px, transparent 1px),
-        radial-gradient(circle at 55% 15%, rgba(160, 82, 45, 0.14) 2px, transparent 2px);
-    background-size: 80px 80px, 120px 120px, 100px 100px, 90px 90px, 110px 110px, 95px 95px;
-    background-position: 0 0, 40px 60px, 20px 30px, 70px 10px, 30px 80px, 60px 50px;
-    opacity: 0.5;
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.12) 3px, transparent 3px),
+        radial-gradient(circle at 45% 35%, rgba(255, 255, 255, 0.08) 2px, transparent 2px),
+        radial-gradient(circle at 75% 50%, rgba(255, 255, 255, 0.15) 4px, transparent 4px),
+        radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.09) 3px, transparent 3px),
+        radial-gradient(circle at 55% 15%, rgba(255, 255, 255, 0.11) 2px, transparent 2px),
+        radial-gradient(circle at 35% 55%, rgba(255, 255, 255, 0.07) 2px, transparent 2px),
+        radial-gradient(circle at 65% 85%, rgba(255, 255, 255, 0.13) 3px, transparent 3px);
+    background-size: 80px 80px, 120px 120px, 100px 100px, 90px 90px, 110px 110px, 95px 95px, 105px 105px, 115px 115px;
+    background-position: 0 0, 40px 60px, 20px 30px, 70px 10px, 30px 80px, 60px 50px, 15px 65px, 85px 35px;
+    opacity: 0.6;
 }
 
 header::after {
@@ -112,20 +114,27 @@ header::after {
     bottom: 0;
     background: 
         repeating-linear-gradient(
-            45deg,
+            60deg,
             transparent,
-            transparent 50px,
-            rgba(101, 67, 33, 0.04) 50px,
-            rgba(101, 67, 33, 0.04) 51px
+            transparent 55px,
+            rgba(255, 255, 255, 0.04) 55px,
+            rgba(255, 255, 255, 0.04) 57px
         ),
         repeating-linear-gradient(
-            -45deg,
+            -60deg,
             transparent,
-            transparent 50px,
-            rgba(139, 90, 43, 0.03) 50px,
-            rgba(139, 90, 43, 0.03) 51px
+            transparent 55px,
+            rgba(255, 255, 255, 0.03) 55px,
+            rgba(255, 255, 255, 0.03) 57px
+        ),
+        repeating-linear-gradient(
+            30deg,
+            transparent,
+            transparent 75px,
+            rgba(255, 255, 255, 0.025) 75px,
+            rgba(255, 255, 255, 0.025) 76px
         );
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
         .header-content {
