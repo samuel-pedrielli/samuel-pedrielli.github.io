@@ -90,9 +90,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><defs><pattern id="fractal" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="rgba(139,90,43,0.08)"/><circle cx="25" cy="75" r="15" fill="rgba(101,67,33,0.06)"/><circle cx="75" cy="25" r="15" fill="rgba(101,67,33,0.06)"/><circle cx="75" cy="75" r="10" fill="rgba(160,82,45,0.05)"/><circle cx="50" cy="50" r="8" fill="rgba(139,90,43,0.09)"/></pattern></defs><rect width="400" height="400" fill="url(%23fractal)"/></svg>');
-    opacity: 0.3;
-    background-size: 200px 200px;
+    background: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(139,90,43,0.03) 35px, rgba(139,90,43,0.03) 70px),
+        repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(101,67,33,0.02) 35px, rgba(101,67,33,0.02) 70px);
+    opacity: 0.6;
 }
 
         .header-content {
