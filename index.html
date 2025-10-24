@@ -75,15 +75,35 @@
             padding: 0 2rem;
         }
 
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Header */
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
 
-        header::before {
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(101, 67, 33, 0.15) 2px, transparent 2px),
+        radial-gradient(circle at 45% 35%, rgba(139, 90, 43, 0.12) 1px, transparent 1px),
+        radial-gradient(circle at 75% 50%, rgba(160, 82, 45, 0.1) 3px, transparent 3px),
+        radial-gradient(circle at 25% 70%, rgba(101, 67, 33, 0.13) 2px, transparent 2px),
+        radial-gradient(circle at 85% 80%, rgba(139, 90, 43, 0.11) 1px, transparent 1px),
+        radial-gradient(circle at 55% 15%, rgba(160, 82, 45, 0.14) 2px, transparent 2px);
+    background-size: 80px 80px, 120px 120px, 100px 100px, 90px 90px, 110px 110px, 95px 95px;
+    background-position: 0 0, 40px 60px, 20px 30px, 70px 10px, 30px 80px, 60px 50px;
+    opacity: 0.5;
+}
+
+header::after {
     content: '';
     position: absolute;
     top: 0;
@@ -91,9 +111,21 @@
     right: 0;
     bottom: 0;
     background: 
-        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(139,90,43,0.03) 35px, rgba(139,90,43,0.03) 70px),
-        repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(101,67,33,0.02) 35px, rgba(101,67,33,0.02) 70px);
-    opacity: 0.6;
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 50px,
+            rgba(101, 67, 33, 0.04) 50px,
+            rgba(101, 67, 33, 0.04) 51px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 50px,
+            rgba(139, 90, 43, 0.03) 50px,
+            rgba(139, 90, 43, 0.03) 51px
+        );
+    opacity: 0.4;
 }
 
         .header-content {
