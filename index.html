@@ -84,15 +84,25 @@
         }
 
         header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(139,90,43,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(101,67,33,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 60% 70%, rgba(160,82,45,0.12) 0%, transparent 40%);
+    opacity: 0.4;
+    background-size: 400% 400%;
+    animation: fractalMove 20s ease infinite;
+}
+
+@keyframes fractalMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
 
         .header-content {
             position: relative;
@@ -728,6 +738,7 @@
                     <li><a href="#preprints">Preprints</a></li>
                     <li><a href="#code">Code</a></li>
                     <li><a href="#about">About</a></li>
+                     <li><a href="philosophy.html">Philosophy</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#comments">Discuss</a></li>
                     <li><a href="https://github.com/samuel-pedrielli" target="_blank" rel="noopener">GitHub</a></li>
