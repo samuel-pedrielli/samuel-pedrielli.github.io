@@ -90,18 +90,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 50%, rgba(139,90,43,0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 30%, rgba(101,67,33,0.1) 0%, transparent 50%),
-        radial-gradient(circle at 60% 70%, rgba(160,82,45,0.12) 0%, transparent 40%);
-    opacity: 0.4;
-    background-size: 400% 400%;
-    animation: fractalMove 20s ease infinite;
-}
-
-@keyframes fractalMove {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><defs><pattern id="fractal" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="rgba(139,90,43,0.08)"/><circle cx="25" cy="75" r="15" fill="rgba(101,67,33,0.06)"/><circle cx="75" cy="25" r="15" fill="rgba(101,67,33,0.06)"/><circle cx="75" cy="75" r="10" fill="rgba(160,82,45,0.05)"/><circle cx="50" cy="50" r="8" fill="rgba(139,90,43,0.09)"/></pattern></defs><rect width="400" height="400" fill="url(%23fractal)"/></svg>');
+    opacity: 0.3;
+    background-size: 200px 200px;
 }
 
         .header-content {
