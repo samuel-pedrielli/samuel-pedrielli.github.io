@@ -119,13 +119,14 @@ header::after {
             transparent 50%
         ),
         url('assets/img/fractal-sepia.png');
-    background-size: cover, cover; /* Zooma e riempie */
-    background-position: center center, center center;
+    background-size: 100% 100%, contain; /* Riduce zoom del frattale */
+    background-position: center center, right center; /* Sposta leggermente a destra */
     background-repeat: no-repeat;
     opacity: 0.7;
     pointer-events: none;
     z-index: 1;
 }
+
 
 
         .header-content {
