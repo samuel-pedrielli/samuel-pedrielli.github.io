@@ -75,7 +75,18 @@
             padding: 0 2rem;
         }
 
-        /* Header */
+        <!-- Header con frattale nero/seppia -->
+<header>
+  <div class="fractal-overlay"></div>
+  <div class="header-content">
+    <h1>Samuel Pedrielli</h1>
+    <p class="subtitle">Independent Researcher</p>
+    <p class="tagline">"Interdisciplinary Research Across Mathematics and AI Safety"</p>
+  </div>
+</header>
+
+<style>
+/* Header */
 header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
@@ -128,30 +139,50 @@ header::after {
     z-index: 1;
 }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
+/* Fractal Overlay */
+.fractal-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 33%;
+    background-image: url('assets/img/fractal-sepia.png'); /* aggiorna il percorso se necessario */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+    mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+}
 
-        .header-content h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-        }
+.header-content {
+    position: relative;
+    z-index: 2;
+}
 
-        .header-content .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
+.header-content h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
 
-        .header-content .tagline {
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            opacity: 0.8;
-            font-style: italic;
-        }
+.header-content .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.header-content .tagline {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+</style>
+
 
         nav {
             background: rgba(255,255,255,0.95);
