@@ -107,23 +107,26 @@
 header::after {
     content: '';
     position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 85%;
-    height: 120%;
-    background: linear-gradient(to right, 
-        rgba(30, 60, 114, 1) 0%, 
-        rgba(30, 60, 114, 0.9) 10%,
-        rgba(30, 60, 114, 0.6) 25%,
-        transparent 40%
-    ), url('assets/img/fractal-sepia.png');
-    background-size: 100%, auto 120%;
-    background-position: left center, right center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, 
+            rgba(30, 60, 114, 1) 0%, 
+            rgba(30, 60, 114, 0.9) 10%,
+            rgba(30, 60, 114, 0.6) 25%,
+            transparent 50%
+        ),
+        url('assets/img/fractal-sepia.png');
+    background-size: cover, cover; /* Zooma e riempie */
+    background-position: center center, center center;
     background-repeat: no-repeat;
     opacity: 0.7;
     pointer-events: none;
     z-index: 1;
 }
+
 
         .header-content {
             position: relative;
