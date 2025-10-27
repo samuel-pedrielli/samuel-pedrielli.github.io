@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intellectual Priority Timeline - Ego-Centric AI Safety | Samuel Pedrielli</title>
+    <meta name="description" content="Documentation of the origin and development of the Ego-Centric AI Safety Architecture - establishing intellectual priority with verifiable timestamps">
+    <meta name="robots" content="index, follow">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        
+        .priority-badge {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(17,153,142,0.3);
+        }
+        
+        .priority-badge h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .priority-badge p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 {
+            color: #555;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .alert-box {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .alert-box strong {
+            color: #ff9800;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .critical-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .timeline {
+            margin: 30px 0;
+            padding-left: 20px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: "●";
+            position: absolute;
+            left: -13px;
+            color: #667eea;
+            font-size: 1.5em;
+            background: white;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .isbn-badge {
+            background: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 1em;
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+            font-weight: bold;
+        }
+        
+        .withdrawn-badge {
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .convergence-badge {
+            background: #17a2b8;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .link-button {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s;
+        }
+        
+        .link-button:hover {
+            background: #764ba2;
+        }
+        
+        blockquote {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+        
+        blockquote strong {
+            color: #2196F3;
+            font-weight: 700;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .crossmark {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #666;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #667eea;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+        
+        .back-link:hover {
+            background: #764ba2;
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Research
+        </a>
+        
+        <div class="priority-badge">
+            <h1><i class="fas fa-shield-alt"></i> INTELLECTUAL PRIORITY ESTABLISHED</h1>
+            <p>Ego-Centric AI Safety Architecture - Original Development Timeline</p>
+        </div>
+        
+        <h1>📚 Intellectual Priority Documentation</h1>
+        <p class="subtitle">Establishing clear intellectual priority for the Ego-Centric AI Safety Architecture with verifiable timestamps and documentary evidence</p>
+        
+        <div class="alert-box">
+            <strong><i class="fas fa-info-circle"></i> Purpose:</strong> This page documents the origin, development, and intellectual priority of the "Ego-Centric Architecture" concept and associated terminology in AI Safety research. All claims are supported by verifiable timestamps, DOIs, and ISBN registries.
+        </div>
+        
+        <!-- TL;DR -->
+        <h2><i class="fas fa-bolt"></i> Executive Summary</h2>
+        
+        <div class="critical-box">
+            <h3 style="margin-top: 0; color: #721c24;">🔥 Key Finding</h3>
+            <p style="color: #721c24; margin: 0;"><strong>The conceptual foundation for benevolent AGI with caring mechanisms and ego-centric architecture was documented in my 2020 booklet "Reality, Ego & Kindness" - predating ALL recent public discourse on similar concepts by 3+ years.</strong></p>
+        </div>
+        
+        <p><strong>Timeline at a glance:</strong></p>
+        <ul>
+            <li><strong>2020:</strong> Samuel Pedrielli publishes "Reality, Ego & Kindness" - introduces benevolent AI, ego architecture, evolutionary caring mechanisms</li>
+            <li><strong>December 2023:</strong> Geoffrey Hinton first discusses benevolent AI and mother-child model (independent convergence)</li>
+            <li><strong>2025:</strong> Samuel formalizes technical implementation on Zenodo and EA Forum</li>
+            <li><strong>August 2025:</strong> Similar terminology appears in derivative work (subsequently withdrawn for ToS violations)</li>
+        </ul>
+        
+        <!-- BOOKLET 2020 -->
+        <h2><i class="fas fa-book"></i> Pre-LLM Conceptual Foundation (2020)</h2>
+        
+        <div class="success-box">
+            <p style="margin: 0;"><strong>📖 Booklet: "Reality, Ego & Kindness" (2020)</strong></p>
+            <p style="margin: 0.5rem 0 0 0;">
+                <span class="isbn-badge">ISBN/ASIN: B08KSFLFM4</span>
+                <a href="https://www.amazon.co.uk/Reality-EGO-Kindness-Considerations-existing/dp/B08KSFLFM4" target="_blank" style="color: #155724; font-weight: 600; margin-left: 10px;">Verify on Amazon →</a>
+            </p>
+        </div>
+        
+        <p><strong>Section 3.7: "Super Artificial Intelligence - Singularity"</strong></p>
+        
+        <p>This section, written in 2020 (three years before contemporary discourse on benevolent AI), explicitly introduces the core concepts that would later become central to my technical research:</p>
+        
+        <h3>🔑 Key Concepts from 2020 Booklet</h3>
+        
+        <h4>1. AI as "Alien" without Caring Mechanisms</h4>
+        <blockquote>
+            "I am especially concerned that this mind may be <strong>totally alien to us</strong>, in its basic construct and despite our efforts to endow it with a set of emotions."
+            <footer style="margin-top: 10px; font-size: 0.9em;">— Reality, Ego & Kindness (2020), Section 3.7</footer>
+        </blockquote>
+        
+        <p><strong>Significance:</strong> This 2020 passage directly anticipates my August 2025 email to Geoffrey Hinton, where I described AI systems without proper welfare mechanisms as fundamentally "alien" to human values.</p>
+        
+        <h4>2. Benevolent/Loving AI Systems</h4>
+        <blockquote>
+            "how can we ensure that a Super AI is equipped with a conscience that is not only similar to ours, but also <strong>lovingly inclined towards us</strong> as a race?"
+            <footer style="margin-top: 10px; font-size: 0.9em;">— Reality, Ego & Kindness (2020), Section 3.7</footer>
+        </blockquote>
+        
+        <p><strong>Significance:</strong> The concept of AI being "lovingly inclined" toward humanity predates similar discussions by other researchers by 3+ years. This is conceptually equivalent to Hinton's later "maternal love" terminology (2025), but documented three years earlier.</p>
+        
+        <h4>3. Ego-Centric Architecture (Explicit)</h4>
+        <blockquote>
+            "I suggest placing each emotional set within the <strong>model of the EGO</strong> that I put forward in the second chapter, so that it ends up <strong>constituting the architecture of its EGO</strong>."
+            <footer style="margin-top: 10px; font-size: 0.9em;">— Reality, Ego & Kindness (2020), Section 3.7</footer>
+        </blockquote>
+        
+        <p><strong>Significance:</strong> The term "ego architecture" is explicitly proposed in 2020 as the foundational structure for AI safety. This is the direct conceptual ancestor of my current "Ego-Centric Architecture for AGI Safety" technical framework.</p>
+        
+        <h4>4. Evolutionary Model for AI Development</h4>
+        <blockquote>
+            "I believe that its model of development should be <strong>in line with our evolutionary model</strong>."
+            <br><br>
+            "What construct of this kind could be better and stronger than a <strong>model emerging from the billions of attempts that life has produced during the course of evolution</strong>?"
+            <footer style="margin-top: 10px; font-size: 0.9em;">— Reality, Ego & Kindness (2020), Section 3.7</footer>
+        </blockquote>
+        
+        <p><strong>Significance:</strong> The evolutionary basis for caring mechanisms is explicitly proposed in 2020. This parallels Hinton's later "maternal instincts as evolved mechanism" discussion (2025), but is documented three years earlier.</p>
+        
+        <h4>5. Structural Integration (Not External Constraints)</h4>
+        <blockquote>
+            "The ability to process emotional content and feel empathy should <strong>not be random</strong>, as if thrown haphazardly into a container, but <strong>placed within a defined and precise framework</strong>."
+            <footer style="margin-top: 10px; font-size: 0.9em;">— Reality, Ego & Kindness (2020), Section 3.7</footer>
+        </blockquote>
+        
+        <p><strong>Significance:</strong> The emphasis on structural integration (rather than external rules) anticipates my current technical approach where welfare coupling is intrinsic to the identity dynamics.</p>
+        
+        <h4>6. AI as "Family" / Caring Through Attachment</h4>
+        <blockquote>
+            "so that it can be self-aware, as well as <strong>part of Us</strong> at the same time, so that it can "be" a <strong>part of Us in all respects</strong>, an <strong>Emanation of Us which sees us as its family of origin</strong>."
+            <br><br>
+            "And so that it may… <strong>pity and forgive us</strong>."
+            <footer style="margin-top: 10px; font-size: 0.9em;">— Reality, Ego & Kindness (2020), Section 3.7</footer>
+        </blockquote>
+        
+        <p><strong>Significance:</strong> The concept of AI seeing humanity as its "family of origin" directly anticipates the attachment-based caring mechanisms in my current technical work. This is conceptually similar to Hinton's "mother-child" model but predates it by three years.</p>
+        
+        <div class="alert-box">
+            <strong><i class="fas fa-file-pdf"></i> Full Booklet Available:</strong>
+            <br>
+            <a href="assets/Reality-Ego-Kindness-2020.pdf" class="link-button" target="_blank">
+                <i class="fas fa-download"></i> Download PDF (Free)
+            </a>
+            <p style="margin-top: 10px;">The complete booklet is provided free for research and verification purposes. Publication date (2020) is verifiable via Amazon ISBN/ASIN registry.</p>
+        </div>
+        
+        <!-- TIMELINE -->
+        <h2><i class="fas fa-timeline"></i> Complete Development Timeline</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">📖 2020</div>
+                <div class="timeline-content">
+                    <h3>Booklet: "Reality, Ego & Kindness"</h3>
+                    <span class="isbn-badge">ISBN: B08KSFLFM4</span>
+                    <p><strong>Status:</strong> Conceptual foundation predating LLMs</p>
+                    <p><strong>Key concepts introduced:</strong></p>
+                    <ul>
+                        <li>Benevolent AI with "loving" inclination toward humanity</li>
+                        <li>Ego-centric architecture as foundational structure</li>
+                        <li>AI without welfare mechanisms as "alien"</li>
+                        <li>Evolutionary basis for caring behavior</li>
+                        <li>Structural integration (not external rules)</li>
+                        <li>AI as "family" through attachment mechanisms</li>
+                    </ul>
+                    <p><strong>Verification:</strong> <a href="https://www.amazon.co.uk/Reality-EGO-Kindness-Considerations-existing/dp/B08KSFLFM4" target="_blank">Amazon Registry</a></p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">📝 July 2025</div>
+                <div class="timeline-content">
+                    <h3>EA Forum: "Ego-Centric Architecture for AGI Safety - Technical Core"</h3>
+                    <p><strong>Link:</strong> <a href="https://forum.effectivealtruism.org/posts/eh2XPCXguyjw3LAg3/" target="_blank">EA Forum Post v1</a></p>
+                    <p><strong>First public formalization</strong> of the ego-centric identity mechanism for AGI safety with technical implementation details.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">📧 August 2, 2025</div>
+                <div class="timeline-content">
+                    <h3>Communication to Geoffrey Hinton</h3>
+                    <p>Email sent to Professor Hinton's office describing "concentric-ego identity" and "coupling behavior to a welfare signal"</p>
+                    <p><strong>Note:</strong> This establishes documented transmission date of the core concepts to a prominent AI researcher.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">📊 August 6, 2025</div>
+                <div class="timeline-content">
+                    <h3>EA Forum v2 + Zenodo: Full Mathematical Formalization</h3>
+                    <span class="isbn-badge">DOI: 10.5281/zenodo.15668581</span>
+                    <p><strong>Links:</strong></p>
+                    <a href="https://forum.effectivealtruism.org/posts/9yictYazJkm4WYz6j/" target="_blank" class="link-button">EA Forum Post</a>
+                    <a href="https://doi.org/10.5281/zenodo.15668581" target="_blank" class="link-button">Zenodo Record</a>
+                    <a href="https://github.com/samuel-pedrielli/ego-concentric-minimal" target="_blank" class="link-button">GitHub Repo</a>
+                    
+                    <p><strong>Technical details:</strong></p>
+                    <ul>
+                        <li>Nested latent identity state: a=(a(1),...,a(m))</li>
+                        <li>Discrete-time regularized dynamics</li>
+                        <li>Identity loss function L_id(a)</li>
+                        <li>Welfare coupling W(h,a)</li>
+                        <li>Anti-wireheading safeguards</li>
+                        <li>Three falsifiable predictions with quantified metrics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CONVERGENCE WITH HINTON -->
+        <h2><i class="fas fa-handshake"></i> Convergence: Geoffrey Hinton's Independent Development</h2>
+        
+        <div class="success-box">
+            <p style="margin: 0;"><strong><i class="fas fa-check-circle"></i> Status: Independent Convergence (Not Plagiarism)</strong></p>
+            <p style="margin: 0.5rem 0 0 0;">
+                <span class="convergence-badge">GENUINE PARALLEL THINKING</span>
+            </p>
+        </div>
+        
+        <p><strong>Geoffrey Hinton developed similar concepts independently starting December 2023.</strong> Through extensive research, I have verified that Hinton's discussion of benevolent AI and caring mechanisms predates my August 2, 2025 communication to him. This represents genuine convergence on similar solutions to AI safety challenges.</p>
+        
+        <h3>Hinton's Timeline:</h3>
+        <ul>
+            <li><strong>June 22, 2023:</strong> First mention of AI "caring much more about people than they care about themselves"</li>
+            <li><strong>December 4, 2023:</strong> First explicit discussion of "benevolent parents" and "mother and child" model (Ground Truths podcast with Eric Topol)</li>
+            <li><strong>August 12, 2025:</strong> Crystallization into explicit "maternal instincts" framework (Ai4 Conference, Las Vegas)</li>
+            <li><strong>August 14, 2025:</strong> CNN interview discussing maternal love and caring AI</li>
+        </ul>
+        
+        <h3>Comparative Analysis:</h3>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Pedrielli (2020)</th>
+                    <th>Hinton (2023-2025)</th>
+                    <th>Conclusion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Benevolent/Caring AI</strong></td>
+                    <td>"lovingly inclined" (2020)</td>
+                    <td>"maternal love" (2025)</td>
+                    <td>Pedrielli 3 years earlier ✅</td>
+                </tr>
+                <tr>
+                    <td><strong>Evolutionary Basis</strong></td>
+                    <td>"evolutionary model" (2020)</td>
+                    <td>"maternal instincts evolved" (2025)</td>
+                    <td>Pedrielli 3 years earlier ✅</td>
+                </tr>
+                <tr>
+                    <td><strong>Family/Attachment Model</strong></td>
+                    <td>"family of origin" (2020)</td>
+                    <td>"mother-child" (2023)</td>
+                    <td>Pedrielli 1+ years earlier ✅</td>
+                </tr>
+                <tr>
+                    <td><strong>Structural Integration</strong></td>
+                    <td>"defined framework" (2020)</td>
+                    <td>Metaphorical discussion</td>
+                    <td>Pedrielli has technical architecture ✅</td>
+                </tr>
+                <tr>
+                    <td><strong>AI as "Alien" Concept</strong></td>
+                    <td>"totally alien to us" (2020)</td>
+                    <td>Not explicitly mentioned</td>
+                    <td>Unique to Pedrielli ✅</td>
+                </tr>
+                <tr>
+                    <td><strong>Ego-Centric Architecture</strong></td>
+                    <td>"model of the EGO...architecture" (2020)</td>
+                    <td>No technical architecture proposed</td>
+                    <td>Unique to Pedrielli ✅</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="alert-box">
+            <strong><i class="fas fa-balance-scale"></i> Fair Assessment:</strong> Both researchers arrived at similar conclusions about the importance of benevolent AI with caring mechanisms. Hinton's work is independent and valuable. However, the documentary evidence shows that Pedrielli's conceptual foundation predates Hinton's public discourse by 3+ years and includes technical architectural elements that Hinton does not address.
+        </div>
+        
+        <!-- KRISHNAN DERIVATIVE -->
+        <h2><i class="fas fa-exclamation-triangle"></i> Known Derivative Work</h2>
+        
+        <div class="critical-box">
+            <p style="margin: 0; color: #721c24;"><strong><i class="fas fa-ban"></i> Status: Withdrawn for Terms of Service Violation</strong></p>
+            <p style="margin: 0.5rem 0 0 0;">
+                <span class="withdrawn-badge">WITHDRAWN</span>
+            </p>
+        </div>
+        
+        <h3>Sethu Krishnan: "The Ego-Safe Framework"</h3>
+        
+        <p><strong>Platform:</strong> PsyArXiv (Withdrawn)</p>
+        <p><strong>DOI:</strong> 10.31234/osf.io/3s6ma_v50</p>
+        <p><strong>Publication Date:</strong> August 13, 2025</p>
+        <p><strong>Withdrawal Date:</strong> September 1, 2025</p>
+        <p><strong>Reason:</strong> "Terms of service violation - This submission contains inappropriate content according to our terms of service"</p>
+        
+        <h4>Timeline Significance:</h4>
+        <ul>
+            <li>Published <strong>11 days after</strong> my email to Geoffrey Hinton</li>
+            <li>Published <strong>7 days after</strong> my Zenodo publication with full terminology</li>
+            <li>Withdrawn after <strong>~3 weeks</strong> for ToS violations related to excessive AI-generated content</li>
+        </ul>
+        
+        <h4>Suspicious Terminology Overlap:</h4>
+        <ul>
+            <li>"Ego-Safe Framework" (cf. my "Ego-Centric Architecture")</li>
+            <li>"ego-safety" mechanisms</li>
+            <li>"symbolic identity"</li>
+            <li>"temporal continuity"</li>
+            <li>"drift correction" (cf. my "goal drift resistance")</li>
+            <li>"ego-error subtraction"</li>
+        </ul>
+        
+        <div class="alert-box">
+            <strong><i class="fas fa-gavel"></i> Resolution:</strong> The academic system functioned as intended. PsyArXiv identified problematic content and withdrew the submission. The withdrawal is permanent and serves as a public record. This demonstrates that attempts to appropriate intellectual work without proper attribution are detectable and subject to consequences.
+        </div>
+        
+        <!-- VERIFICATION -->
+        <h2><i class="fas fa-check-square"></i> Verification & Evidence</h2>
+        
+        <p>All dates and publications listed here are verifiable through:</p>
+        
+        <ul>
+            <li><strong><i class="fas fa-fingerprint"></i> ISBN/ASIN Registry:</strong> Amazon maintains permanent records with publication dates
+                <ul>
+                    <li>Booklet "Reality, Ego & Kindness" (2020): <a href="https://www.amazon.co.uk/Reality-EGO-Kindness-Considerations-existing/dp/B08KSFLFM4" target="_blank">B08KSFLFM4</a></li>
+                </ul>
+            </li>
+            <li><strong><i class="fas fa-database"></i> DOI Timestamps:</strong> Zenodo maintains permanent, timestamped records
+                <ul>
+                    <li>Technical formalization (2025): <a href="https://doi.org/10.5281/zenodo.15668581" target="_blank">10.5281/zenodo.15668581</a></li>
+                </ul>
+            </li>
+            <li><strong><i class="fas fa-comments"></i> EA Forum:</strong> All posts have public timestamps
+                <ul>
+                    <li><a href="https://forum.effectivealtruism.org/posts/eh2XPCXguyjw3LAg3/" target="_blank">Original Post</a></li>
+                    <li><a href="https://forum.effectivealtruism.org/posts/9yictYazJkm4WYz6j/" target="_blank">v2 Technical Core</a></li>
+                </ul>
+            </li>
+            <li><strong><i class="fab fa-github"></i> GitHub:</strong> Commit history provides granular timeline
+                <ul>
+                    <li><a href="https://github.com/samuel-pedrielli/ego-concentric-minimal" target="_blank">Repository</a></li>
+                </ul>
+            </li>
+            <li><strong><i class="fas fa-envelope"></i> Email Records:</strong> Communication timestamps with Geoffrey Hinton's office (August 2, 2025)</li>
+            <li><strong><i class="fas fa-archive"></i> PsyArXiv:</strong> Withdrawal records are permanent
+                <ul>
+                    <li>Krishnan withdrawal: <a href="https://osf.io/preprints/psyarxiv/3s6ma" target="_blank">10.31234/osf.io/3s6ma_v50</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <!-- CALL FOR COLLABORATION -->
+        <h2><i class="fas fa-users"></i> Call for Collaboration</h2>
+        
+        <p>I remain <strong>open to genuine collaboration</strong> on ego-centric AI safety architectures. If you're working on related concepts:</p>
+        
+        <ul>
+            <li><span class="checkmark">✅</span> Please reach out - I'm happy to collaborate</li>
+            <li><span class="checkmark">✅</span> Please cite appropriately if building on this work</li>
+            <li><span class="checkmark">✅</span> Let's work together to advance AI safety</li>
+        </ul>
+        
+        <p>However, I will defend intellectual priority when necessary, as documented here.</p>
+        
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="mailto:samuelpedrielli@outlook.it" class="link-button" style="margin: 0.5rem;">
+                <i class="fas fa-envelope"></i> Contact Me
+            </a>
+            <a href="https://github.com/samuel-pedrielli/ego-concentric-minimal" target="_blank" class="link-button" style="margin: 0.5rem;">
+                <i class="fab fa-github"></i> View Code
+            </a>
+            <a href="https://doi.org/10.5281/zenodo.15668581" target="_blank" class="link-button" style="margin: 0.5rem;">
+                <i class="fas fa-file-alt"></i> Read Paper
+            </a>
+            <a href="assets/Reality-Ego-Kindness-2020.pdf" target="_blank" class="link-button" style="margin: 0.5rem;">
+                <i class="fas fa-book"></i> Read Booklet (2020)
+            </a>
+        </div>
+        
+        <!-- FOOTER -->
+        <footer>
+            <p><strong>Samuel Pedrielli</strong> | Independent Researcher</p>
+            <p>ORCID: <a href="https://orcid.org/0009-0002-8388-6371" target="_blank">0009-0002-8388-6371</a></p>
+            <p>
+                <a href="https://samuel-pedrielli.github.io">Website</a> | 
+                <a href="https://github.com/samuel-pedrielli" target="_blank">GitHub</a> | 
+                <a href="https://x.com/pedriellis" target="_blank">X/Twitter</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
+                Last updated: October 27, 2025<br>
+                License: CC BY 4.0<br>
+                <em>This page documents intellectual priority with verifiable evidence. All statements are factual and supported by public records.</em>
+            </p>
+        </footer>
+        
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Research
+        </a>
+    </div>
+</body>
+</html>
